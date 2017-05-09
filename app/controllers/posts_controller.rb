@@ -39,11 +39,15 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to root_path
+  end
+
+  def soft_delete
+    @post = Post.find(params[:post_id])
+    @post.soft_delete
+    redirect_to root_path
   end
 
   private

@@ -1,4 +1,10 @@
 class Post < ActiveRecord::Base
+	has_many :comments, dependent: :destroy
+	default_scope { where(deleted_at: nil) }
 
-	has_many :comments
+	def soft_delete
+		self.deleted_at = Time.now
+		self.comments.update_all(deleted_at: Time.now)
+		self.save!
+	end
 end

@@ -6,3 +6,6 @@
 <p>
 	<%= comment.body %>
 </p>
+
+<%= link_to 'delete', [comment.post, comment],
+method: :delete, data: { confirm: 'Are you sure?' } %>
