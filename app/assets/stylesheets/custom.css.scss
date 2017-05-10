@@ -1,2 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.post-title{
+font-weight: bold;
+font-size: 1.5em;
+}
+
+.post-body{
+border-top: 1px solid #eaeaea;
+padding-top: 15px;
+padding-bottom: 15px;
+}
